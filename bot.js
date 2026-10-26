@@ -1,4 +1,11 @@
 const mineflayer = require('mineflayer');
+const http = require('http');
+
+// Servidor HTTP falso para que Render mantenga la app activa sin fallar por puerto
+http.createServer((req, res) => {
+  res.write("Bot 24/7 activo");
+  res.end();
+}).listen(process.env.PORT || 3000);
 
 function createBot() {
   const bot = mineflayer.createBot({
