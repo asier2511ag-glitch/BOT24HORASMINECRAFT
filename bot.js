@@ -1,7 +1,7 @@
 const mineflayer = require('mineflayer');
 const http = require('http');
 
-// Servidor HTTP falso para que Render mantenga la app activa sin fallar por puerto
+// Servidor HTTP falso para mantener vivo Render
 http.createServer((req, res) => {
   res.write("Bot 24/7 activo");
   res.end();
@@ -11,12 +11,11 @@ function createBot() {
   const bot = mineflayer.createBot({
     host: 'mastiff.aternos.host',
     port: 32679,
-    username: 'BOT24H',
-    version: '1.20.4'
+    username: 'BOT24H'
   });
 
   bot.on('spawn', () => {
-    console.log('[NPC] El bot ha aparecido correctamente.');
+    console.log('[NPC] El bot ha aparecido correctamente en Aternos.');
     setTimeout(() => {
       setInterval(() => {
         bot.setControlState('jump', true);
